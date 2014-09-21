@@ -2,7 +2,7 @@ from tile import Tile
 
 class Board:
     def __init__(self):
-        self.board = None
+        self.middle = None                                            
         self.piece = None
         
     def getTileWithPiece(self):
@@ -26,8 +26,21 @@ class Board:
         joint2 = Tile(None,None,None,"joint2")
         joint3 = Tile(None,None,None,"joint3")
         
+        self.connectTiles(self.portal1,home1)
         
+    def connectTiles(self,t1,t2):
+        self.connectTilesHelper(t1,t2)
+        self.connectTilesHelper(t2,t1)
+        
+    def connectTilesHelper(self,t1,t2):
+        if t1.tile1 is None:
+            t1.tile1 = t2
+        elif t1.tile2 is None:
+            t1.tile1 = t2
+        elif t1.tile2 is None:
+            t1.tile1 = t2
+
         
     def getBoard(self):
-        return self.board
+        return self.middle #refer to board by pointing to it's middle             
 
