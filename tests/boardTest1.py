@@ -6,4 +6,4 @@ from board import Board
 
 t1 = Board()
 t1.buildBasicBoard()
-print t1.portal1
+print t1
