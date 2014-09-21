@@ -31,6 +31,3 @@ class Board:
     def getBoard(self):
         return self.board
 
-t1 = Board()
-t1.buildBasicBoard()
-print t1.middle.piece
