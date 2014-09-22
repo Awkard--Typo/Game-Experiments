@@ -59,7 +59,7 @@ class Board:
         self.connectTiles(self.portal1,joint3)
         
         
-    def connectTiles(self,t1,t2):
+    def connectTiles(self,t1,t2):        #fully (doubly) connects the two tiles
         self.connectTilesHelper(t1,t2)
         self.connectTilesHelper(t2,t1)
         
@@ -71,12 +71,23 @@ class Board:
         elif t1.tile3 is None:
             t1.tile3 = t2
 
+    def removeTiles(self,t1,t2):
+        self.removeTilesHelper(t1,t2)
+        self.removeTilesHelper(t2,t1)
+      
+    def removeTilesHelper(self,t1,t2):
+        if t1.tile1 is t2:
+            t1.tile1 = None
+        if t1.tile2 is t2:
+            t1.tile2 = None
+        if t1.tile3 is t2:
+            t1.tile3 = None
         
     def getBoard(self):
         return self.middle #refer to board by pointing to it's middle  
       
     def __str__(self):
-        rtn = ""
+        rtn = "\n"
         for tag in self.tiles:
             rtn += str(self.tiles[tag]) + "\n"
         return rtn
